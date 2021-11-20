@@ -27,10 +27,6 @@ export async function fetchItemsS3(prefix, continuationToken) {
 function buildUrl(prefix, continuationToken) {
   const { bucketUrl, pageSize } = config;
 
-  if (!bucketUrl) {
-    throw Error("Bucket url is undefined!");
-  }
-
   let bucketListApiUrl = `${bucketUrl}?list-type=2`;
   bucketListApiUrl += `&delimiter=/`;
   bucketListApiUrl += `&prefix=${prefix}`;
@@ -78,18 +74,6 @@ const mapContent = (bucketUrl) => (tag) => {
   const dateModified = dateModifiedTag(tag);
 
   let url = `${bucketUrl}/${key}`;
-  let installUrl;
-
-  // generate manifest.plist install urls
-  let isIOS =
-    /iPad|iPhone|iPod/.test(navigator.platform) ||
-    (navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1);
-  if (isIOS && url.endsWith("/manifest.plist")) {
-    installUrl = `itms-services://?action=download-manifest&url=${url.replace(
-      /\/[^/]*$/,
-      ""
-    )}/manifest.plist`;
-  }
 
   return {
     type: "content",
@@ -98,7 +82,6 @@ const mapContent = (bucketUrl) => (tag) => {
     dateModified,
     key,
     url,
-    installUrl,
   };
 };
 
