@@ -1,7 +1,7 @@
-import { buildIconFile, buildIconFolder } from "./icon";
-import { formatBytes, formatDateRelative } from "./formatter";
+import { FileIcon, FolderIcon } from "./icon";
+import { formatBytes, formatDateRelative } from "../utils/formatter";
 
-export function createTable(tableData) {
+export function ListFiles(tableData) {
   const table = document.createElement("table");
   table.setAttribute("class", "table is-hoverable is-fullwidth");
   table.appendChild(Thead());
@@ -36,7 +36,7 @@ function RowFolder({ name, prefix }) {
   const row = document.createElement("tr");
 
   const nameCell = document.createElement("td");
-  nameCell.appendChild(buildIconFolder());
+  nameCell.appendChild(FolderIcon());
   nameCell.appendChild(Link(name, prefix));
   row.appendChild(nameCell);
 
@@ -50,7 +50,7 @@ function RowFile({ name, url, size, dateModified }) {
   const row = document.createElement("tr");
 
   const nameCell = document.createElement("td");
-  nameCell.appendChild(buildIconFile());
+  nameCell.appendChild(FileIcon());
   nameCell.appendChild(Link(name, url));
   row.appendChild(nameCell);
 

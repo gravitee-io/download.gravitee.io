@@ -1,6 +1,6 @@
-import { buildIconBreadcrumbFolder } from "./icon";
+import { BreadcrumbFolderIcon } from "./icon";
 
-export function createBreadcrumb(pathPrefix) {
+export function Breadcrumb(pathPrefix) {
   const div = document.createElement("div");
   div.setAttribute("class", "buttons is-pulled-left");
 
@@ -16,7 +16,7 @@ function Button({ name, url }) {
 
   if (name === "") {
     btn.setAttribute("style", "font-weight: bolder;");
-    btn.appendChild(buildIconBreadcrumbFolder());
+    btn.appendChild(BreadcrumbFolderIcon());
     btn.appendChild(document.createTextNode("/"));
   } else {
     btn.appendChild(document.createTextNode(name));

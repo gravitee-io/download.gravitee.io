@@ -1,4 +1,4 @@
-import { formatDistanceToNow } from "date-fns";
+import formatDistanceToNow from "date-fns/formatDistanceToNow";
 
 export function formatBytes(bytes, decimals) {
   if (bytes === 0) return "0 Bytes";

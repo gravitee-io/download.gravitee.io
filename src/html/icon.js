@@ -1,10 +1,10 @@
-export function buildIconBreadcrumbFolder() {
+export function BreadcrumbFolderIcon() {
   return buildIcon("fas fa-folder");
 }
-export function buildIconFolder() {
+export function FolderIcon() {
   return buildIcon("far fa-folder");
 }
-export function buildIconFile() {
+export function FileIcon() {
   return buildIcon("far fa-file-alt");
 }
 
