@@ -1,3 +1,6 @@
+export function buildIconBreadcrumbFolder() {
+  return buildIcon("fas fa-folder");
+}
 export function buildIconFolder() {
   return buildIcon("far fa-folder");
 }
