@@ -7,10 +7,23 @@ function getPrefix() {
   return locationHash.replace(/^\//, "");
 }
 
-const breadcrumb = document.getElementById("breadcrumb");
-breadcrumb.appendChild(createBreadcrumb(getPrefix()));
+window.addEventListener("DOMContentLoaded", () => {
+  const breadcrumb = document.getElementById("breadcrumb");
+  breadcrumb.appendChild(createBreadcrumb(getPrefix()));
 
-fetchItemsS3(getPrefix()).then((e) => {
   const table = document.getElementById("table");
-  table.appendChild(createTable(e));
+  fetchItemsS3(getPrefix()).then((e) => {
+    table.appendChild(createTable(e));
+  });
+
+  window.addEventListener("hashchange", () => {
+    breadcrumb.replaceChild(
+      createBreadcrumb(getPrefix()),
+      breadcrumb.firstChild
+    );
+
+    fetchItemsS3(getPrefix()).then((e) => {
+      table.replaceChild(createTable(e), table.firstChild);
+    });
+  });
 });
