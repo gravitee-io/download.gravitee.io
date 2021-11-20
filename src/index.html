@@ -1,12 +1,43 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link id="favicon" rel="shortcut icon" href='./favicon.ico'>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link id="favicon" rel="shortcut icon" href="./favicon.ico" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+    />
+
     <title>Gravitee.io</title>
-</head>
-<body>
-<h1>rollup-starter-app</h1>
-<p>The time is <span id='time-now'>...</span></p>
-</body>
+  </head>
+  <body>
+    <div id="app">
+      <div class="level">
+        <div class="level-left" style="display: flex">
+          <figure
+            class="level-item image is-96x96"
+            style="margin-right: 1.5rem"
+          >
+            <img src="./logo.png" alt="Gravitee logo" />
+          </figure>
+          <div>
+            <h1 class="title">Gravitee.io</h1>
+            <h2 class="subtitle">Downloads</h2>
+          </div>
+        </div>
+      </div>
+
+      <div class="container">
+        <!-- Navigation Bar -->
+        <div class="container is-clearfix"></div>
+
+        <div id="table"></div>
+      </div>
+    </div>
+  </body>
 </html>
