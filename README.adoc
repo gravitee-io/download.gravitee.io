@@ -1,0 +1,38 @@
+= Gravitee.io download page
+
+This repository contains the code of https://download.gravitee.io
+
+It was inspired by https://github.com/qoomon/aws-s3-bucket-browser with some changes:
+
+- replace Vue.js by vanilla Javascript
+- remove pagination
+- sort the items with natural order
+
+https://rollupjs.org[rollup.js] is used to bundle the page in a single `index.html` file.
+
+== Build the project
+
+Fetch dependencies
+
+[source,bash]
+----
+❯ yarn install
+----
+
+Build the `index.html`
+
+[source,bash]
+----
+❯ yarn build
+----
+
+The `index.html` can be found in `dist/` directory.
+
+== Development
+
+You can start a development server with livereload
+
+[source,bash]
+----
+❯ yarn start:dev
+----
