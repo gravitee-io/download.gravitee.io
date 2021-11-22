@@ -1,0 +1,93 @@
+version: 2.1
+
+orbs:
+  secrethub: secrethub/cli@1.1.0
+  gravitee: gravitee-io/gravitee@1.0.41
+
+parameters:
+  release:
+    type: boolean
+    default: false
+    description: "trigger release flag"
+
+executors:
+  node-lts-small:
+    docker:
+      - image: circleci/node:16.13.0-buster
+    resource_class: small
+  node-lts-medium:
+    docker:
+      - image: circleci/node:16.13.0-buster
+    resource_class: medium
+
+jobs:
+  install:
+    executor:
+      name: node-lts-small
+    steps:
+      - checkout
+      - restore_cache:
+          name: Restore yarn cache
+          keys:
+            - download-gravitee-yarn-cache-v1-{{ checksum "yarn.lock" }}
+      - run:
+          name: Install dependencies
+          command: yarn install
+      - save_cache:
+          name: Save yarn cache
+          key: download-gravitee-yarn-cache-v1-{{ checksum "yarn.lock" }}
+          paths:
+            - .yarn/cache
+          when: always
+      - persist_to_workspace:
+          root: .
+          paths:
+            - node_modules
+
+  lint-test:
+    executor:
+      name: node-lts-medium
+    steps:
+      - checkout
+      - attach_workspace:
+          at: .
+      - run:
+          name: Run CommitLint
+          command: yarn lint:commit
+      - run:
+          name: Run Prettier
+          command: yarn lint
+      - run:
+          name: Run All Tests
+          command: yarn test --coverage
+      - store_artifacts:
+          path: coverage
+
+  build:
+    executor:
+      name: node-lts-medium
+    steps:
+      - checkout
+      - attach_workspace:
+          at: .
+      - run:
+          name: Build
+          command: yarn build
+      - persist_to_workspace:
+          root: .
+          paths:
+            - dist
+
+workflows:
+  version: 2
+  branch_validate:
+    when:
+      not: << pipeline.parameters.release >>
+    jobs:
+      - install
+      - lint-test:
+          requires:
+            - install
+      - build:
+          requires:
+            - install
