@@ -1,16 +1,26 @@
 {
   "name": "downloads.gravitee.io",
   "version": "1.0.0",
+  "private": true,
   "license": "MIT",
   "author": "Julien Giovaresco <dev@giovaresco.fr>",
   "main": "index.js",
   "scripts": {
     "build": "rollup -c",
     "build:watch": "rollup -c -w",
+    "postinstall": "is-ci || husky install",
+    "lint": "yarn lint:prettier",
+    "lint:commit": "commitlint --from $(git describe --tags --abbrev=0) --to HEAD --verbose",
     "lint:prettier": "prettier --check '**/*.{js,ts,json}'",
     "lint:prettier:fix": "prettier --write \"**/*.{js,ts,json}\"",
+    "prepare": "is-ci || husky install",
     "start:dev": "yarn build:watch",
     "test": "jest"
+  },
+  "commitlint": {
+    "extends": [
+      "@commitlint/config-conventional"
+    ]
   },
   "lint-staged": {
     "*.{js,html,css,json}": "prettier --write"
@@ -19,9 +29,12 @@
     "date-fns": "^2.26.0"
   },
   "devDependencies": {
+    "@commitlint/cli": "^15.0.0",
+    "@commitlint/config-conventional": "^15.0.0",
     "@rollup/plugin-commonjs": "^17.0.0",
     "@rollup/plugin-node-resolve": "^11.1.0",
     "husky": "^7.0.4",
+    "is-ci": "^3.0.1",
     "jest": "^27.3.1",
     "jest-fetch-mock": "^3.0.3",
     "lint-staged": "^12.0.3",
