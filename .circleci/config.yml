@@ -1,13 +1,22 @@
 version: 2.1
 
 orbs:
-  secrethub: secrethub/cli@1.1.0
+  secrethub: secrethub/cli@1.1
+  aws-s3: circleci/aws-s3@3.0
 
 parameters:
+  action:
+    type: enum
+    enum: [ publish, pull_requests ]
+    default: pull_requests
   release:
     type: boolean
     default: false
     description: "trigger release flag"
+  dry_run:
+    type: boolean
+    default: true
+    description: "Run process in dry run mode ?"
 
 executors:
   node-lts-small:
@@ -18,6 +27,24 @@ executors:
     docker:
       - image: circleci/node:16.13.0-buster
     resource_class: medium
+
+commands:
+  s3-sync:
+    description: "Synchronize a local folder with a S3 bucket"
+    parameters:
+      local_dir:
+        type: string
+        description: The local folder to sync
+      bucket:
+        type: string
+        description: The S3 bucket
+    steps:
+      - aws-s3/sync:
+          arguments: |
+            --endpoint-url https://cellar-c2.services.clever-cloud.com \
+            --acl public-read
+          from: << parameters.local_dir>>
+          to: 's3://<< parameters.bucket >>/'
 
 jobs:
   install:
@@ -77,11 +104,38 @@ jobs:
           paths:
             - dist
 
+  publish-on-s3:
+    parameters:
+      dry_run:
+        type: boolean
+        default: true
+    docker:
+      - image: cimg/base:stable
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: .
+      - when:
+          condition:
+            equal: [ true, << pipeline.parameters.dry_run >> ]
+          steps:
+            - s3-sync:
+                local_dir: dist
+                bucket: gravitee-dry-releases-downloads
+      - when:
+          condition:
+            equal: [ false, << pipeline.parameters.dry_run >> ]
+          steps:
+            - s3-sync:
+                local_dir: dist
+                bucket: gravitee-releases-downloads
+
 workflows:
   version: 2
   branch_validate:
     when:
-      not: << pipeline.parameters.release >>
+      and:
+        - equal: [ pull_requests, << pipeline.parameters.action >> ]
     jobs:
       - install
       - lint-test:
@@ -90,3 +144,26 @@ workflows:
       - build:
           requires:
             - install
+
+  publish:
+    when:
+      and:
+        - equal: [ publish, << pipeline.parameters.action >> ]
+    jobs:
+      - install
+      - build:
+          requires:
+            - install
+      - publish-on-s3:
+          context: cicd-orchestrator
+          pre-steps:
+            - secrethub/env-export:
+                secret-path: graviteeio/cicd/graviteebot/infra/zip-bundle-server/clever-cloud-s3/s3cmd/aws_access_key
+                var-name: AWS_ACCESS_KEY_ID
+            - secrethub/env-export:
+                secret-path: graviteeio/cicd/graviteebot/infra/zip-bundle-server/clever-cloud-s3/s3cmd/aws_secret_key
+                var-name: AWS_SECRET_ACCESS_KEY
+          dry_run: << pipeline.parameters.dry_run >>
+          requires:
+            - build
+

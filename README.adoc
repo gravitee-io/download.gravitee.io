@@ -12,6 +12,8 @@ https://rollupjs.org[rollup.js] is used to bundle the page in a single `index.ht
 
 == Build the project
 
+WARNING: You will need Node.js 16
+
 Fetch dependencies
 
 [source,bash]
@@ -36,3 +38,17 @@ You can start a development server with livereload
 ----
 ❯ yarn start:dev
 ----
+
+== Publish on S3
+
+WARNING: You will need a Circle CI API Token to be able to publish a new version
+
+To publish the portal you can use the script `.bin/publish.sh`.
+- `DRY_RUN=true` will publish to our dry-run bucket: `gravitee-dry-releases-downloads`
+- `DRY_RUN=false` will publish to our public bucket: `gravitee-releases-downloads`
+
+[source,bash]
+----
+CCI_TOKEN=xxxx DRY_RUN=false .bin/publish.sh
+----
+
