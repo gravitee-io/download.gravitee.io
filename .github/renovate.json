@@ -1,0 +1,41 @@
+{
+  "extends": ["config:base"],
+  "prConcurrentLimit": 3,
+  "dependencyDashboard": true,
+  "commitMessageTopic": "{{depName}}",
+  "packageRules": [
+    {
+      "groupName": "dev-tools",
+      "packageNames": [
+        "@semantic-release/*",
+        "husky",
+        "is-ci",
+        "lint-staged",
+        "nodemon",
+        "pinst",
+        "@rollup-*",
+        "rollup-*"
+      ]
+    },
+    {
+      "packagePatterns": ["^jest*"],
+      "groupName": "js-test-libs"
+    },
+    {
+      "groupName": "linters",
+      "packagePatterns": [
+        "^@commitlint/*",
+        "^eslint*",
+        "^prettier",
+        "^prettier-*",
+        "^sort-package-json",
+        "^@typescript-eslint/*"
+      ]
+    },
+    {
+      "matchDepTypes": ["devDependencies"],
+      "matchUpdateTypes": ["minor", "patch"],
+      "automerge": true
+    }
+  ]
+}
