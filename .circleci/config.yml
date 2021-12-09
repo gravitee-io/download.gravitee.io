@@ -12,11 +12,11 @@ parameters:
 executors:
   node-lts-small:
     docker:
-      - image: circleci/node:16.13.0-buster
+      - image: circleci/node:17.1.0-buster
     resource_class: small
   node-lts-medium:
     docker:
-      - image: circleci/node:16.13.0-buster
+      - image: circleci/node:17.1.0-buster
     resource_class: medium
 
 jobs:
