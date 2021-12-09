@@ -874,9 +874,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@rollup/plugin-commonjs@npm:17.0.0":
-  version: 17.0.0
-  resolution: "@rollup/plugin-commonjs@npm:17.0.0"
+"@rollup/plugin-commonjs@npm:21.0.1":
+  version: 21.0.1
+  resolution: "@rollup/plugin-commonjs@npm:21.0.1"
   dependencies:
     "@rollup/pluginutils": ^3.1.0
     commondir: ^1.0.1
@@ -886,14 +886,14 @@ __metadata:
     magic-string: ^0.25.7
     resolve: ^1.17.0
   peerDependencies:
-    rollup: ^2.30.0
-  checksum: b569a9923a53d798bee023148b5099bf6f4edb255be1f6a7181783f3ba804d41e928776ac89495009b2927da7de9a200f019ce15768c93f2815f2445a5def48a
+    rollup: ^2.38.3
+  checksum: 3e56be58c72d655face6f361f85923ddcc3cc07760b5a3a91cfc728115dfed358fc595781148c512d53a03be8c703133379f228e78fd2aed8655fae9d83800b6
   languageName: node
   linkType: hard
 
-"@rollup/plugin-node-resolve@npm:11.1.0":
-  version: 11.1.0
-  resolution: "@rollup/plugin-node-resolve@npm:11.1.0"
+"@rollup/plugin-node-resolve@npm:13.0.6":
+  version: 13.0.6
+  resolution: "@rollup/plugin-node-resolve@npm:13.0.6"
   dependencies:
     "@rollup/pluginutils": ^3.1.0
     "@types/resolve": 1.17.1
@@ -902,8 +902,8 @@ __metadata:
     is-module: ^1.0.0
     resolve: ^1.19.0
   peerDependencies:
-    rollup: ^1.20.0||^2.0.0
-  checksum: a3c2d1e49b5841bd34bd862a488445720746d3eb24c63e6e3bfd7ef37f14d4b73b2ba644907e8137972ddf6d470a24b1877a31975cfab26002ea74c8ee784d9f
+    rollup: ^2.42.0
+  checksum: da304025ca898f3ad70e3a24d788634298f2ca6e139517adff43f27ea9cf821af3ee3530ca6f8abaf7e697294b59803837cd8f0ec22e3b1d34d3411c39e9a32c
   languageName: node
   linkType: hard
 
@@ -1888,7 +1888,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"cosmiconfig@npm:^7.0.0, cosmiconfig@npm:^7.0.1":
+"cosmiconfig@npm:^7.0.0":
   version: 7.0.1
   resolution: "cosmiconfig@npm:7.0.1"
   dependencies:
@@ -2115,17 +2115,17 @@ __metadata:
   dependencies:
     "@commitlint/cli": 15.0.0
     "@commitlint/config-conventional": 15.0.0
-    "@rollup/plugin-commonjs": 17.0.0
-    "@rollup/plugin-node-resolve": 11.1.0
+    "@rollup/plugin-commonjs": 21.0.1
+    "@rollup/plugin-node-resolve": 13.0.6
     date-fns: 2.26.0
     husky: 7.0.4
     is-ci: 3.0.1
     jest: 27.3.1
     jest-fetch-mock: 3.0.3
-    lint-staged: 12.0.3
+    lint-staged: 12.1.2
     prettier: 2.4.1
     prettier-plugin-packagejson: 2.2.15
-    rollup: 2.36.2
+    rollup: 2.61.0
     rollup-jest: 1.1.3
     rollup-plugin-copy: 3.4.0
     rollup-plugin-html-bundle: 0.0.3
@@ -2453,28 +2453,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"fsevents@npm:~2.1.2":
-  version: 2.1.3
-  resolution: "fsevents@npm:2.1.3"
-  dependencies:
-    node-gyp: latest
-  checksum: b5ec0516b44d75b60af5c01ff80a80cd995d175e4640d2a92fbabd02991dd664d76b241b65feef0775c23d531c3c74742c0fbacd6205af812a9c3cef59f04292
-  conditions: os=darwin
-  languageName: node
-  linkType: hard
-
 "fsevents@patch:fsevents@^2.3.2#~builtin<compat/fsevents>, fsevents@patch:fsevents@~2.3.2#~builtin<compat/fsevents>":
   version: 2.3.2
   resolution: "fsevents@patch:fsevents@npm%3A2.3.2#~builtin<compat/fsevents>::version=2.3.2&hash=18f3a7"
-  dependencies:
-    node-gyp: latest
-  conditions: os=darwin
-  languageName: node
-  linkType: hard
-
-"fsevents@patch:fsevents@~2.1.2#~builtin<compat/fsevents>":
-  version: 2.1.3
-  resolution: "fsevents@patch:fsevents@npm%3A2.1.3#~builtin<compat/fsevents>::version=2.1.3&hash=18f3a7"
   dependencies:
     node-gyp: latest
   conditions: os=darwin
@@ -3765,6 +3746,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"lilconfig@npm:2.0.4":
+  version: 2.0.4
+  resolution: "lilconfig@npm:2.0.4"
+  checksum: 02ae530aa49218d782eb79e92c600ea5220828987f85aa3403fa512cadc7efe38c0ac7d0cd2edf600ad3fae1f6c1752f5b4bb78c0d9950435b044d53d507c9e1
+  languageName: node
+  linkType: hard
+
 "lines-and-columns@npm:^1.1.6":
   version: 1.1.6
   resolution: "lines-and-columns@npm:1.1.6"
@@ -3772,26 +3760,27 @@ __metadata:
   languageName: node
   linkType: hard
 
-"lint-staged@npm:12.0.3":
-  version: 12.0.3
-  resolution: "lint-staged@npm:12.0.3"
+"lint-staged@npm:12.1.2":
+  version: 12.1.2
+  resolution: "lint-staged@npm:12.1.2"
   dependencies:
     cli-truncate: ^3.1.0
     colorette: ^2.0.16
     commander: ^8.3.0
-    cosmiconfig: ^7.0.1
     debug: ^4.3.2
     enquirer: ^2.3.6
     execa: ^5.1.1
+    lilconfig: 2.0.4
     listr2: ^3.13.3
     micromatch: ^4.0.4
     normalize-path: ^3.0.0
     object-inspect: ^1.11.0
     string-argv: ^0.3.1
     supports-color: ^9.0.2
+    yaml: ^1.10.2
   bin:
     lint-staged: bin/lint-staged.js
-  checksum: 08a20d9c93bab3e26baf6f92a9f39d114636eba4f3cf6b6c3893cac8db612963563a9ba6cd477f4fd5af265e04976b049e70647ff8732e7469a5d989840f9148
+  checksum: ec84ce4f74d0d8fe314bd0b62fb5e0be64af692d1876f68c457116faef61b4b3b79d72df7819c248bfbb20c46e88fbe994128e7351e84bec7048263e00199925
   languageName: node
   linkType: hard
 
@@ -4876,17 +4865,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"rollup@npm:2.36.2":
-  version: 2.36.2
-  resolution: "rollup@npm:2.36.2"
+"rollup@npm:2.61.0":
+  version: 2.61.0
+  resolution: "rollup@npm:2.61.0"
   dependencies:
-    fsevents: ~2.1.2
+    fsevents: ~2.3.2
   dependenciesMeta:
     fsevents:
       optional: true
   bin:
     rollup: dist/bin/rollup
-  checksum: 7559262706ed6b850a929bb34f1db82e03a1c94540711b1fba6150a87271a06644f7a00f614372709193511f09f2b10bc82fc00f8421ebc65c1b50cfc32064d4
+  checksum: 9a30043759c990503f870fa2591b428d8dc979a2c407c3f23a177fa8bef5e423f9a6adf707e0a92bdd67a3a1af28ff1e5fdf6176e1d03c513867608208165d87
   languageName: node
   linkType: hard
 
@@ -5611,11 +5600,11 @@ __metadata:
 
 "typescript@patch:typescript@^4.4.3#~builtin<compat/typescript>":
   version: 4.5.2
-  resolution: "typescript@patch:typescript@npm%3A4.5.2#~builtin<compat/typescript>::version=4.5.2&hash=ddd1e8"
+  resolution: "typescript@patch:typescript@npm%3A4.5.2#~builtin<compat/typescript>::version=4.5.2&hash=493e53"
   bin:
     tsc: bin/tsc
     tsserver: bin/tsserver
-  checksum: 24a439e062a05e3285a4f0e8a40644116ecdca89f3e908bed01e5a01b9aee747e3bcf0e85fe9e017e5ebf0c0863437c39479f2616f55a244c2d82d37022cdc4f
+  checksum: 53838d56aba6fcc947d63aa0771e5d966b1b648fddafed6e221d7f38c71219c4e036ece8cfe9e35ed80cf5a35ff4eb958934c993f99c3233773ec4f9ccd53f69
   languageName: node
   linkType: hard
 
@@ -5858,7 +5847,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"yaml@npm:^1.10.0":
+"yaml@npm:^1.10.0, yaml@npm:^1.10.2":
   version: 1.10.2
   resolution: "yaml@npm:1.10.2"
   checksum: ce4ada136e8a78a0b08dc10b4b900936912d15de59905b2bf415b4d33c63df1d555d23acb2a41b23cf9fb5da41c256441afca3d6509de7247daa062fd2c5ea5f
