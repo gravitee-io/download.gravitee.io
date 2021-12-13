@@ -9,7 +9,10 @@ import copy from "rollup-plugin-copy";
 import serve from "rollup-plugin-serve";
 import livereload from "rollup-plugin-livereload";
 
-const production = !process.env.ROLLUP_WATCH;
+const build = !process.env.ROLLUP_WATCH;
+const production = process.env.NODE_ENV === "production";
+
+const GA_TAG = production ? "GTM-N6LFN88" : "";
 
 const watcher = (globs) => ({
   buildStart() {
@@ -36,20 +39,30 @@ export default {
     htmlBundle({
       inline: true,
       template: "src/index.html",
-      target: "dist/index.html",
+      target: "build/index.html",
     }),
     copy({
+      hook: "closeBundle",
       targets: [
         { src: "src/favicon.ico", dest: "dist/" },
         { src: "src/logo.png", dest: "dist/" },
+        {
+          src: "build/index.html",
+          dest: "dist/",
+          transform: (contents, filename) => {
+            return contents
+              .toString()
+              .replaceAll("_GOOGLE_ANALYTICS_TAG_", GA_TAG);
+          },
+        },
       ],
     }),
-    !production &&
+    !build &&
       serve({
         open: true,
         contentBase: "dist",
       }),
-    !production &&
+    !build &&
       livereload({
         watch: "dist",
       }),
