@@ -95,7 +95,7 @@ describe("fetchItemsS3", () => {
         name: "cla.pdf",
         key: "cla.pdf",
         size: 36553,
-        url: "https://download.gravitee.io/cla.pdf",
+        url: "_BUCKET_URL_/cla.pdf",
         dateModified: new Date("2021-05-18T03:38:43.937Z"),
       },
       {
@@ -103,7 +103,7 @@ describe("fetchItemsS3", () => {
         name: "favicon.ico",
         key: "favicon.ico",
         size: 54802,
-        url: "https://download.gravitee.io/favicon.ico",
+        url: "_BUCKET_URL_/favicon.ico",
         dateModified: new Date("2021-06-23T08:11:40.315Z"),
       },
       {
@@ -111,7 +111,7 @@ describe("fetchItemsS3", () => {
         name: "logo.png",
         key: "logo.png",
         size: 25253,
-        url: "https://download.gravitee.io/logo.png",
+        url: "_BUCKET_URL_/logo.png",
         dateModified: new Date("2021-06-23T08:14:12.136Z"),
       },
     ]);
@@ -189,7 +189,7 @@ describe("fetchItemsS3", () => {
         name: "cla.pdf",
         key: "cla.pdf",
         size: 36553,
-        url: "https://download.gravitee.io/cla.pdf",
+        url: "_BUCKET_URL_/cla.pdf",
         dateModified: new Date("2021-05-18T03:38:43.937Z"),
       },
       {
@@ -197,7 +197,7 @@ describe("fetchItemsS3", () => {
         name: "favicon.ico",
         key: "favicon.ico",
         size: 54802,
-        url: "https://download.gravitee.io/favicon.ico",
+        url: "_BUCKET_URL_/favicon.ico",
         dateModified: new Date("2021-06-23T08:11:40.315Z"),
       },
       {
@@ -205,7 +205,7 @@ describe("fetchItemsS3", () => {
         name: "logo.png",
         key: "logo.png",
         size: 25253,
-        url: "https://download.gravitee.io/logo.png",
+        url: "_BUCKET_URL_/logo.png",
         dateModified: new Date("2021-06-23T08:14:12.136Z"),
       },
     ]);
@@ -251,7 +251,7 @@ describe("fetchItemsS3", () => {
         name: "logo.png",
         key: "logo.png",
         size: 25253,
-        url: "https://download.gravitee.io/logo.png",
+        url: "_BUCKET_URL_/logo.png",
         dateModified: new Date("2021-06-23T08:14:12.136Z"),
       },
     ]);
@@ -297,7 +297,7 @@ describe("fetchItemsS3", () => {
         name: "logo.png",
         key: "logo.png",
         size: 25253,
-        url: "https://download.gravitee.io/logo.png",
+        url: "_BUCKET_URL_/logo.png",
         dateModified: new Date("2021-06-23T08:14:12.136Z"),
       },
     ]);
@@ -374,7 +374,7 @@ describe("fetchItemsS3", () => {
         name: "graviteeio-full-3.13.0.zip",
         key: "graviteeio-apim/distributions/graviteeio-full-3.13.0.zip",
         size: 251969024,
-        url: "https://download.gravitee.io/graviteeio-apim/distributions/graviteeio-full-3.13.0.zip",
+        url: "_BUCKET_URL_/graviteeio-apim/distributions/graviteeio-full-3.13.0.zip",
         dateModified: new Date("2021-11-19T16:25:28.863Z"),
       },
       {
@@ -382,7 +382,7 @@ describe("fetchItemsS3", () => {
         name: "graviteeio-full-3.5.21.zip",
         key: "graviteeio-apim/distributions/graviteeio-full-3.5.21.zip",
         size: 253152247,
-        url: "https://download.gravitee.io/graviteeio-apim/distributions/graviteeio-full-3.5.21.zip",
+        url: "_BUCKET_URL_/graviteeio-apim/distributions/graviteeio-full-3.5.21.zip",
         dateModified: new Date("2021-11-02T10:37:15.707Z"),
       },
       {
@@ -390,7 +390,7 @@ describe("fetchItemsS3", () => {
         name: "graviteeio-full-1.10.0.zip",
         key: "graviteeio-apim/distributions/graviteeio-full-1.10.0.zip",
         size: 189611799,
-        url: "https://download.gravitee.io/graviteeio-apim/distributions/graviteeio-full-1.10.0.zip",
+        url: "_BUCKET_URL_/graviteeio-apim/distributions/graviteeio-full-1.10.0.zip",
         dateModified: new Date("2021-04-07T20:30:44.482Z"),
       },
       {
@@ -398,7 +398,7 @@ describe("fetchItemsS3", () => {
         name: "graviteeio-full-1.1.0.zip",
         key: "graviteeio-apim/distributions/graviteeio-full-1.1.0.zip",
         size: 205831416,
-        url: "https://download.gravitee.io/graviteeio-apim/distributions/graviteeio-full-1.1.0.zip",
+        url: "_BUCKET_URL_/graviteeio-apim/distributions/graviteeio-full-1.1.0.zip",
         dateModified: new Date("2021-04-07T20:30:44.329Z"),
       },
       {
@@ -406,7 +406,7 @@ describe("fetchItemsS3", () => {
         name: "graviteeio-full-1.0.1.zip",
         key: "graviteeio-apim/distributions/graviteeio-full-1.0.1.zip",
         size: 248619380,
-        url: "https://download.gravitee.io/graviteeio-apim/distributions/graviteeio-full-1.0.1.zip",
+        url: "_BUCKET_URL_/graviteeio-apim/distributions/graviteeio-full-1.0.1.zip",
         dateModified: new Date("2021-04-08T20:30:43.805Z"),
       },
       {
@@ -414,7 +414,7 @@ describe("fetchItemsS3", () => {
         name: "graviteeio-full-1.0.0.zip",
         key: "graviteeio-apim/distributions/graviteeio-full-1.0.0.zip",
         size: 248619380,
-        url: "https://download.gravitee.io/graviteeio-apim/distributions/graviteeio-full-1.0.0.zip",
+        url: "_BUCKET_URL_/graviteeio-apim/distributions/graviteeio-full-1.0.0.zip",
         dateModified: new Date("2021-04-07T20:30:43.805Z"),
       },
     ]);
