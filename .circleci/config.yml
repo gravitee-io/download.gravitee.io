@@ -1,8 +1,8 @@
 version: 2.1
 
 orbs:
-  secrethub: secrethub/cli@1.1
-  aws-s3: circleci/aws-s3@3.0
+  secrethub: secrethub/cli@1.1.0
+  aws-s3: circleci/aws-s3@3.0.0
 
 parameters:
   action:
