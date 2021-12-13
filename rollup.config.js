@@ -3,6 +3,7 @@ import path from "path";
 
 import resolve from "@rollup/plugin-node-resolve";
 import commonjs from "@rollup/plugin-commonjs";
+import replace from "@rollup/plugin-replace";
 import { terser } from "rollup-plugin-terser";
 import htmlBundle from "rollup-plugin-html-bundle";
 import copy from "rollup-plugin-copy";
@@ -13,6 +14,9 @@ const build = !process.env.ROLLUP_WATCH;
 const production = process.env.NODE_ENV === "production";
 
 const GA_TAG = production ? "GTM-N6LFN88" : "";
+const BUCKET_URL = production
+  ? "https://download.gravitee.io"
+  : "https://gravitee-dry-releases-downloads.cellar-c2.services.clever-cloud.com";
 
 const watcher = (globs) => ({
   buildStart() {
@@ -36,6 +40,12 @@ export default {
     resolve(), // tells Rollup how to find date-fns in node_modules
     commonjs(), // converts date-fns to ES modules
     production && terser(), // minify, but only in production
+    replace({
+      preventAssignment: true,
+      values: {
+        _BUCKET_URL_: BUCKET_URL,
+      },
+    }),
     htmlBundle({
       inline: true,
       template: "src/index.html",

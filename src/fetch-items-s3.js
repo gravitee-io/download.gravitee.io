@@ -1,5 +1,5 @@
 const config = {
-  bucketUrl: "https://download.gravitee.io",
+  bucketUrl: "_BUCKET_URL_",
   keyExcludePatterns: [/^index\.html$/],
   pageSize: 1000,
 };
