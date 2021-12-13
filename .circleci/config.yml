@@ -92,13 +92,28 @@ jobs:
   build:
     executor:
       name: node-lts-medium
+    parameters:
+      dry_run:
+        type: boolean
+        default: true
     steps:
       - checkout
       - attach_workspace:
           at: .
-      - run:
-          name: Build
-          command: yarn build
+      - when:
+          condition:
+            equal: [ true, << pipeline.parameters.dry_run >> ]
+          steps:
+            - run:
+                name: Build
+                command: yarn build
+      - when:
+          condition:
+            equal: [ false, << pipeline.parameters.dry_run >> ]
+          steps:
+            - run:
+                name: Build
+                command: NODE_ENV=production yarn build
       - persist_to_workspace:
           root: .
           paths:
@@ -152,6 +167,7 @@ workflows:
     jobs:
       - install
       - build:
+          dry_run: << pipeline.parameters.dry_run >>
           requires:
             - install
       - publish-on-s3:
