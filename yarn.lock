@@ -874,9 +874,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@rollup/plugin-commonjs@npm:21.0.1":
-  version: 21.0.1
-  resolution: "@rollup/plugin-commonjs@npm:21.0.1"
+"@rollup/plugin-commonjs@npm:21.0.2":
+  version: 21.0.2
+  resolution: "@rollup/plugin-commonjs@npm:21.0.2"
   dependencies:
     "@rollup/pluginutils": ^3.1.0
     commondir: ^1.0.1
@@ -887,7 +887,7 @@ __metadata:
     resolve: ^1.17.0
   peerDependencies:
     rollup: ^2.38.3
-  checksum: 3e56be58c72d655face6f361f85923ddcc3cc07760b5a3a91cfc728115dfed358fc595781148c512d53a03be8c703133379f228e78fd2aed8655fae9d83800b6
+  checksum: 5fd4c7b75d7881070f4395d7ba5f9035934f53b25e92d136583cc794461a456efc1e2a2204f946ec567dfea58073c38cb48f24d27155b89af0df0447c2cd0758
   languageName: node
   linkType: hard
 
@@ -2125,7 +2125,7 @@ __metadata:
   dependencies:
     "@commitlint/cli": 15.0.0
     "@commitlint/config-conventional": 15.0.0
-    "@rollup/plugin-commonjs": 21.0.1
+    "@rollup/plugin-commonjs": 21.0.2
     "@rollup/plugin-node-resolve": 13.1.3
     "@rollup/plugin-replace": 3.1.0
     date-fns: 2.27.0
