@@ -36,7 +36,7 @@
     "@rollup/plugin-replace": "3.1.0",
     "husky": "7.0.4",
     "is-ci": "3.0.1",
-    "jest": "27.4.5",
+    "jest": "27.5.1",
     "jest-fetch-mock": "3.0.3",
     "lint-staged": "12.3.5",
     "prettier": "2.5.1",
