@@ -49,5 +49,5 @@
     "rollup-plugin-serve": "1.1.0",
     "rollup-plugin-terser": "7.0.2"
   },
-  "packageManager": "yarn@3.2.0"
+  "packageManager": "yarn@3.8.6"
 }
